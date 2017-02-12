@@ -1,0 +1,27 @@
+<plugin>
+   <extension
+         point="org.eclipse.ui.startup">
+      <startup class="sd.ide.eclipse.startup.SDStartupClass"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="org.eclipse.jdt.ui.preferences.BasePreferencePage"
+            class="sd.ide.eclipse.preferences.PreferencePage"
+            id="sd.ide.eclipse.preferences.PreferencePage"
+            name="Decompiler">
+      </page>
+   </extension>r"
+            contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor"
+            extensions="class"
+            default="true"
+            icon="icons/snowman.ico"
+            name="SD Class File Viewer">
+      </editor>
+   </extension>
+   <extension
+         id="SnowmanDecompilerMenu"
+         name="Snowman"
+         point="org.eclipse.ui.menus">
+   </extension>   
+</plugin>

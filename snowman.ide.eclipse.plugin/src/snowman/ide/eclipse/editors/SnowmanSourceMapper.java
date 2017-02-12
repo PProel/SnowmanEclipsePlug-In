@@ -1,9 +1,9 @@
 /*
- * Copyright (c) 2008-2015 Emmanuel Dupuy
+ * Based off of source code by Emmanuel Dupuy
  * This program is made available under the terms of the GPLv3 License.
  */
 
-package jd.ide.eclipse.editors;
+package snowman.ide.eclipse.editors;
 
 import java.io.File;
 import java.util.Iterator;
@@ -11,9 +11,10 @@ import java.util.Map;
 
 import jd.commonide.IdeDecompiler;
 import jd.commonide.preferences.IdePreferences;
-import jd.ide.eclipse.JavaDecompilerPlugin;
+import snowman.ide.eclipse.SnowmanDecompilerPlugin;
 
 import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.jdt.internal.core.SourceMapper;
 import org.eclipse.jface.preference.IPreferenceStore;
@@ -22,12 +23,12 @@ import org.eclipse.jface.preference.IPreferenceStore;
 /**
  * JDSourceMapper
  * 
- * @project Java Decompiler Eclipse Plugin
- * @version 0.1.4
+ * @project Snowman Decompiler Plug-In
+ * @version 0.0.1
  * @see     org.eclipse.jdt.internal.core.SourceMapper
  */
 @SuppressWarnings("restriction")
-public class JDSourceMapper extends SourceMapper
+public class SnowmanSourceMapper extends SourceMapper
 {
 	private final static String JAVA_CLASS_SUFFIX         = ".class";
 	private final static String JAVA_SOURCE_SUFFIX        = ".java";
@@ -36,13 +37,14 @@ public class JDSourceMapper extends SourceMapper
 	private File basePath;
 	
 	@SuppressWarnings("rawtypes")
-	public JDSourceMapper(
+	public SnowmanSourceMapper(
 		File basePath, IPath sourcePath, String sourceRootPath, Map options) 
 	{	
 		super(sourcePath, sourceRootPath, options);
 		this.basePath = basePath;
 	}
 	
+	@Override
 	@SuppressWarnings("rawtypes")
 	public char[] findSource(String javaSourcePath) 
 	{
@@ -78,8 +80,8 @@ public class JDSourceMapper extends SourceMapper
 			}
 			catch (Exception e)
 			{
-				JavaDecompilerPlugin.getDefault().getLog().log(new Status(
-					Status.ERROR, JavaDecompilerPlugin.PLUGIN_ID, 
+				SnowmanDecompilerPlugin.getDefault().getLog().log(new Status(
+					IStatus.ERROR, SnowmanDecompilerPlugin.PLUGIN_ID, 
 					0, e.getMessage(), e));
 			}
 		}
@@ -95,15 +97,15 @@ public class JDSourceMapper extends SourceMapper
      */
 	protected String decompile(String basePath, String classPath) {
 		// Load preferences
-		IPreferenceStore store = JavaDecompilerPlugin.getDefault().getPreferenceStore();
+		IPreferenceStore store = SnowmanDecompilerPlugin.getDefault().getPreferenceStore();
 		
-		boolean showDefaultConstructor = store.getBoolean(JavaDecompilerPlugin.PREF_SHOW_DEFAULT_CONSTRUCTOR);
-		boolean realignmentLineNumber = store.getBoolean(JavaDecompilerPlugin.PREF_REALIGN_LINE_NUMBERS);
-		boolean showPrefixThis = store.getBoolean(JavaDecompilerPlugin.PREF_OMIT_PREFIX_THIS);
+		boolean showDefaultConstructor = store.getBoolean(SnowmanDecompilerPlugin.PREF_SHOW_DEFAULT_CONSTRUCTOR);
+		boolean realignmentLineNumber = store.getBoolean(SnowmanDecompilerPlugin.PREF_REALIGN_LINE_NUMBERS);
+		boolean showPrefixThis = store.getBoolean(SnowmanDecompilerPlugin.PREF_OMIT_PREFIX_THIS);
 		boolean mergeEmptyLines = false;
-		boolean unicodeEscape = store.getBoolean(JavaDecompilerPlugin.PREF_ESCAPE_UNICODE_CHARACTERS);
-		boolean showLineNumbers = store.getBoolean(JavaDecompilerPlugin.PREF_SHOW_LINE_NUMBERS);
-		boolean showMetadata = store.getBoolean(JavaDecompilerPlugin.PREF_SHOW_METADATA);
+		boolean unicodeEscape = store.getBoolean(SnowmanDecompilerPlugin.PREF_ESCAPE_UNICODE_CHARACTERS);
+		boolean showLineNumbers = store.getBoolean(SnowmanDecompilerPlugin.PREF_SHOW_LINE_NUMBERS);
+		boolean showMetadata = store.getBoolean(SnowmanDecompilerPlugin.PREF_SHOW_METADATA);
 		
 		// Create preferences
 		IdePreferences preferences = new IdePreferences(

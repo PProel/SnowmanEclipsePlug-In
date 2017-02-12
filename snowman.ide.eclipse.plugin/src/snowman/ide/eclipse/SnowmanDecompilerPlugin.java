@@ -1,9 +1,9 @@
 /*
- * Copyright (c) 2008-2015 Emmanuel Dupuy
+ * Based off of source code by Emmanuel Dupuy
  * This program is made available under the terms of the GPLv3 License.
  */
 
-package jd.ide.eclipse;
+package snowman.ide.eclipse;
 
 import org.eclipse.jdt.ui.JavaUI;
 import org.eclipse.swt.widgets.Display;
@@ -18,18 +18,18 @@ import org.osgi.framework.BundleContext;
 /**
  * The activator class controls the plug-in life cycle
  * 
- * @project Java Decompiler Eclipse Plugin
- * @version 0.1.4
+ * @project Snowman Decompiler Plug-In
+ * @version 0.0.1
  */
 @SuppressWarnings({ "restriction", "deprecation" })
-public class JavaDecompilerPlugin extends AbstractUIPlugin 
+public class SnowmanDecompilerPlugin extends AbstractUIPlugin 
 {
 	// The plug-in IDs
-	public  static final String PLUGIN_ID = "jd.ide.eclipse";
-	private static final String EDITOR_ID = PLUGIN_ID + ".editors.JDClassFileEditor";	
+	public  static final String PLUGIN_ID = "sd.ide.eclipse";
+	private static final String EDITOR_ID = PLUGIN_ID + ".editors.SDClassFileEditor";	
 	
 	// Versions
-	public static final String VERSION_JD_ECLIPSE = "1.0.0";
+	public static final String VERSION_SD_ECLIPSE = "0.0.1";
 
 	// Preferences
 	public static final String PREF_ESCAPE_UNICODE_CHARACTERS   = PLUGIN_ID + ".prefs.EscapeUnicodeCharacters";
@@ -39,21 +39,19 @@ public class JavaDecompilerPlugin extends AbstractUIPlugin
 	public static final String PREF_SHOW_DEFAULT_CONSTRUCTOR    = PLUGIN_ID + ".prefs.ShowDefaultConstructor";
 	public static final String PREF_SHOW_METADATA               = PLUGIN_ID + ".prefs.ShowMetadata";
 		
-	// URLs
-	public static final String URL_JDECLIPSE = "http://en.wikipedia.org/wiki/Java_Decompiler";
-	
 	// The shared instance
-	private static JavaDecompilerPlugin plugin;
+	private static SnowmanDecompilerPlugin plugin;
 	
 	
 	/**
 	 * The constructor
 	 */
-	public JavaDecompilerPlugin() {}
+	public SnowmanDecompilerPlugin() {}
 	
 	/**
 	 * @see org.eclipse.ui.plugin.AbstractUIPlugin#start(org.osgi.framework.BundleContext)
 	 */
+	@Override
 	public void start(BundleContext context) throws Exception 
 	{
 		super.start(context);
@@ -66,6 +64,7 @@ public class JavaDecompilerPlugin extends AbstractUIPlugin
 	/*
 	 * @see org.eclipse.ui.plugin.AbstractUIPlugin#stop(org.osgi.framework.BundleContext)
 	 */
+	@Override
 	public void stop(BundleContext context) throws Exception 
 	{
 		plugin.savePluginPreferences();
@@ -77,7 +76,7 @@ public class JavaDecompilerPlugin extends AbstractUIPlugin
 	 * Returns the shared instance
 	 * @return the shared instance
 	 */
-	public static JavaDecompilerPlugin getDefault() 
+	public static SnowmanDecompilerPlugin getDefault() 
 	{
 		return plugin;
 	}	

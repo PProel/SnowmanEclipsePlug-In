@@ -1,20 +1,19 @@
 /*
- * Copyright (c) 2008-2015 Emmanuel Dupuy
+ * Based off of source code by Emmanuel Dupuy
  * This program is made available under the terms of the GPLv3 License.
  */
 
-package jd.ide.eclipse.editors;
+package snowman.ide.eclipse.editors;
 
 import java.io.File;
 import java.lang.reflect.Method;
 import java.util.Map;
 
-import jd.ide.eclipse.JavaDecompilerPlugin;
-
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.jdt.core.IBuffer;
 import org.eclipse.jdt.core.IClassFile;
@@ -28,26 +27,29 @@ import org.eclipse.jface.util.PropertyChangeEvent;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IFileEditorInput;
 
+import snowman.ide.eclipse.SnowmanDecompilerPlugin;
+
 
 /**
- * JDClassFileEditor
+ * SDClassFileEditor
  * 
- * @project Java Decompiler Eclipse Plugin
- * @version 0.1.4
+ * @project Snowman Decompiler Plug-In
+ * @version 0.0.1
  * @see     org.eclipse.jdt.internal.ui.javaeditor.ClassFileEditor
  */
 @SuppressWarnings("restriction")
-public class JDClassFileEditor 
+public class SnowmanClassFileEditor 
 	extends ClassFileEditor implements IPropertyChangeListener
 {	
-	public JDClassFileEditor()
+	public SnowmanClassFileEditor()
 	{
-		JavaDecompilerPlugin
+		SnowmanDecompilerPlugin
 			.getDefault()
 			.getPreferenceStore()
 			.addPropertyChangeListener(this);
 	}
 	
+	@Override
 	protected void doSetInput(IEditorInput input) throws CoreException 
 	{
 		if (input instanceof IFileEditorInput) 
@@ -92,8 +94,8 @@ public class JDClassFileEditor
 			} 
 			catch (Exception e) 
 			{
-				JavaDecompilerPlugin.getDefault().getLog().log(new Status(
-					Status.ERROR, JavaDecompilerPlugin.PLUGIN_ID, 
+				SnowmanDecompilerPlugin.getDefault().getLog().log(new Status(
+					IStatus.ERROR, SnowmanDecompilerPlugin.PLUGIN_ID, 
 					0, e.getMessage(), e));
 			}
 		}
@@ -149,27 +151,31 @@ public class JDClassFileEditor
 				// Options
 				Map options = root.getJavaProject().getOptions(true);
 				
-				root.setSourceMapper(new JDSourceMapper(
+				root.setSourceMapper(new SnowmanSourceMapper(
 					baseFile, sourcePath, sourceRootPath, options));				
 			}		
 		} 
 		catch (CoreException e) 
 		{
-			JavaDecompilerPlugin.getDefault().getLog().log(new Status(
-				Status.ERROR, JavaDecompilerPlugin.PLUGIN_ID, 
+			SnowmanDecompilerPlugin.getDefault().getLog().log(new Status(
+				IStatus.ERROR, SnowmanDecompilerPlugin.PLUGIN_ID, 
 				0, e.getMessage(), e));
 		}
 	}
 	
+	@Override
 	public boolean isEditable() { return false; }
 	
+	@Override
 	public boolean isDirty() { return false; }
 	
+	@Override
 	public boolean isEditorInputReadOnly() { return false; }
 	
+	@Override
 	public void dispose()
 	{
-		JavaDecompilerPlugin
+		SnowmanDecompilerPlugin
 			.getDefault()
 			.getPreferenceStore()
 			.removePropertyChangeListener(this);

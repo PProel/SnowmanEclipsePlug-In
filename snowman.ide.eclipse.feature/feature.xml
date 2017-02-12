@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="jd.ide.eclipse.feature"
-      label="JD-Eclipse Plug-in"
-      version="1.0.0"
-      provider-name="Java Decompiler"
-      plugin="jd.ide.eclipse.plugin">
+      id="snowman.ide.eclipse.feature"
+      label="Snowman Decompiler Plug-in"
+      version="0.0.1"
+      provider-name="Snowman Decompiler"
+      plugin="snowman.ide.eclipse.plugin">
 
    <description url="http://www.example.com/feature">
-    JD-Eclipse is a plug-in for the Eclipse platform. It allows you to display all the Java sources during your debugging process, even if you do not have them all.
+    The Snowman Decompiler Plug-In is written for the Eclipse platform. It allows you to dissasemble programs into C++ code.
+    This program is based on source code by Emmanuel Dupuy.
    </description>
-
-   <copyright>
-      Copyright (C) 2008-2015  Emmanuel Dupuy
-   </copyright>
 
    <license url="http://www.gnu.org/licenses/gpl-3.0.html">.
                      GNU GENERAL PUBLIC LICENSE
@@ -79,15 +76,11 @@ Public License instead of this License.  But first, please read
 &lt;http://www.gnu.org/philosophy/why-not-lgpl.html&gt;.
    </license>
 
-   <url>
-      <update url="http://jd.benow.ca/jd-eclipse/update/"/>
-   </url>
-
    <plugin
-         id="jd.ide.eclipse.plugin"
+         id="snowman.ide.eclipse.plugin"
          download-size="0"
          install-size="0"
-         version="1.0.0"
+         version="0.0.1"
          unpack="false"/>
 
 </feature>

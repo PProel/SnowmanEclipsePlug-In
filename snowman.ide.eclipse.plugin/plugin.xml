@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.startup">
+      <startup
+            class="snowman.ide.eclipse.startup.SnowmanStartupClass">
+      </startup>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="org.eclipse.jdt.ui.preferences.BasePreferencePage"
+            class="snowman.ide.eclipse.preferences.PreferencePage"
+            id="snowman.ide.eclipse.preferences.PreferencePage"
+            name="Snowman">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="true"
+            locationURI="Snowman Decompiler Plug-In.menuContribution1">
+         <menu
+               icon="icons/snowman.ico"
+               id="test"
+               label="label"
+               tooltip="test">
+         </menu>
+      </menuContribution>
+   </extension>
+</plugin>
