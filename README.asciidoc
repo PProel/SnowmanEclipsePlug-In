@@ -1,6 +1,9 @@
-# Snowman Decompiler
+Snowman Decompiler Eclipse Plug-In
+==================================
 
-[![Join the chat at](https://discord.gg/C6sxZKM)]
+Join the Discord Development Server
+
+   * https://discord.gg/C6sxZKM
 
 Installing the Eclipse IDE Plug-In
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
