@@ -1,11 +1,11 @@
 Installing the Eclipse IDE Plug-In
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. Download the _Eclipse C/C++ IDE_ for your specific operating system,
+1. Download the _Eclipse C/C++ IDE_ for your specific operating system and architecture,
 
    * https://www.eclipse.org/downloads/packages/eclipse-ide-cc-developers/neon2
    
-2. Unzip the eclipse-cpp.zip corrisponding to your operating system and architecture into your desired directory,
+2. Unzip the eclipse-cpp.zip into your desired directory,
 
 3. Run _eclipse.exe_
 
@@ -15,18 +15,18 @@ Installing the Eclipse IDE Plug-In
 
 6. In the Add Repository dialog that appears, click the Archive button next to the Location field,
 
-7. Select Snowman-Eclipse plugin file and click OK,
+7. Find and select the _"Snowman Eclipse Plug-In"_ file and click OK,
 
 Configuring the Eclipse IDE Plug-In
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Click on _"Window > Preferences > C/C++ > Decompiler"_
+Click on _"Window > Preferences > Decompiler"_
 
 Uninstalling the Eclipse IDE Plug-In
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. Click on _"Help > About Eclipse > Installation Details"_,
 
-2. Select _"Snowman-Eclipse Plug-in"_,
+2. Select _"Snowman Eclipse Plug-in"_,
 
 3. Click on _"Uninstall..."_.
