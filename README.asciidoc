@@ -1,4 +1,6 @@
-[![Join the chat at https://discord.gg/C6sxZKM]
+# Snowman Decompiler
+
+[![Join the chat at](https://discord.gg/C6sxZKM)]
 
 Installing the Eclipse IDE Plug-In
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
